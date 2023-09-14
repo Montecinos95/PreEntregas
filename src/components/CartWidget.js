@@ -1,18 +1,14 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import './CartWidget.css'; 
 
 function CartWidget() {
-  const widgetStyles = {
-    color: 'white',      
-    backgroundColor: 'bg-dark' , 
-    padding: '5px 10px', 
-    paddingright: '15px',
-    borderRadius: '50%', 
-  };
+  const itemCount = 5; 
 
   return (
-    <div style={widgetStyles}>
-      <FaShoppingCart />
+    <div className="cart-widget">
+      <FaShoppingCart className="cart-icon" />
+      <span className="badge badge-danger badge-pill">{itemCount}</span>
     </div>
   );
 }

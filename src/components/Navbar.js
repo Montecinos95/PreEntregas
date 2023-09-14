@@ -1,34 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CartWidget from './CartWidget';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
+function AppNavbar() {
+  const [expanded, setExpanded] = useState(false);
 
-function Navbar() {
+  const toggleNavbar = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container">
-        <a className="navbar-brand" href="/">My React App</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="/">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/about">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+    <Navbar
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      expanded={expanded}
+      onToggle={toggleNavbar}
+    >
+      <Container>
+        <Navbar.Brand href="/">Logo</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <CartWidget />
-      </div>
-    </nav>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/">About</Nav.Link>
+            <Nav.Link href="/">Merch</Nav.Link>
+            <Nav.Link href="/">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
-
-
+export default AppNavbar;
