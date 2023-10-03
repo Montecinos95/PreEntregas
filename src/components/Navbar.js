@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CartWidget from './CartWidget';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // Importa Link
 
 function AppNavbar() {
   const [expanded, setExpanded] = useState(false);
@@ -18,17 +19,17 @@ function AppNavbar() {
       onToggle={toggleNavbar}
     >
       <Container>
-        <Navbar.Brand href="/">Logo</Navbar.Brand>
+        <Navbar.Brand >Logo</Navbar.Brand> {/* Usa Link para la marca */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <CartWidget />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/">About</Nav.Link>
-            <Nav.Link href="/">iPhone</Nav.Link>
-            <Nav.Link href="/">Mac</Nav.Link>
-            <Nav.Link href="/">Accessories</Nav.Link>
-            <Nav.Link href="/">Contact</Nav.Link>
+            <Nav.Link >Home</Nav.Link> {/* Usa Link para los enlaces */}
+            <Nav.Link >About</Nav.Link> {/* Por ejemplo, '/about' */}
+            <Nav.Link >iPhone</Nav.Link> {/* '/iphone' */}
+            <Nav.Link >Mac</Nav.Link> {/* '/mac' */}
+            <Nav.Link >Accessories</Nav.Link> {/* '/accessories' */}
+            <Nav.Link >Contact</Nav.Link> {/* '/contact' */}
           </Nav>
         </Navbar.Collapse>
       </Container>
